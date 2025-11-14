@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
-<body>
+<button onclick="login()">Login with Roblox</button>
 
-<h1>Roblox Login</h1>
-
-<a href="https://apis.roblox.com/oauth/v1/authorize?client_id=DEINE_CLIENT_ID&redirect_uri=https://justreh.github.io/roblox-oauthRSS/&response_type=code&scope=openid">
-    <button>Mit Roblox einloggen</button>
-</a>
-
-</body>
-</html>
-
+<script>
+function login() {
+    window.location.href =
+        "https://auth.roblox.com/oauth/authorize"
+        + "?client_id=DEINE_CLIENT_ID"
+        + "&response_type=code"
+        + "&redirect_uri=https://justreh.github.io/roblox-oauthRSS/callback.html"
+        + "&scope=openid";
+}
+</script>

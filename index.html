@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Roblox Login</title>
+    <meta charset="UTF-8">
+    <title>Roblox OAuth Test</title>
 </head>
+
 <body>
-  <h1>Roblox Login</h1>
+    <h1>Roblox OAuth Test</h1>
 
-  <button id="login">
-    Mit Roblox einloggen
-  </button>
+    <p id="output">Warte auf UserId...</p>
 
-  <script>
-    const CLIENT_ID = "DEINE_CLIENT_ID";
-    const REDIRECT = "https://DEINNAME.github.io/roblox-oauth/callback.html";
-    const SCOPE = "openid profile";
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get("userid");
 
-    document.getElementById("login").onclick = () => {
-      const url = `https://apis.roblox.com/oauth/v1/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT)}&response_type=code&scope=${encodeURIComponent(SCOPE)}`;
-      window.location = url;
-    };
-  </script>
+        if (userId) {
+            document.getElementById("output").innerText =
+                "UserId empfangen: " + userId;
+        } else {
+            document.getElementById("output").innerText =
+                "Keine UserId in der URL gefunden.";
+        }
+    </script>
 </body>
 </html>
+

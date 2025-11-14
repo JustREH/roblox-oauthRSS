@@ -2,26 +2,49 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Roblox OAuth Test</title>
+    <title>Roblox Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #userid-box {
+            margin-top: 20px;
+            font-size: 22px;
+            color: green;
+        }
+        a.login-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: #ff5555;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Roblox OAuth Test</h1>
+    <h1>Roblox Login</h1>
 
-    <p id="output">Warte auf UserId...</p>
+    <a class="login-button"
+       href="https://auth.roblox.com/?redirectTo=https://justreh.github.io/roblox-oauthRSS/">
+       Login with Roblox
+    </a>
+
+    <div id="userid-box"></div>
 
     <script>
+        // UserId aus der URL lesen
         const params = new URLSearchParams(window.location.search);
         const userId = params.get("userid");
 
         if (userId) {
-            document.getElementById("output").innerText =
-                "UserId empfangen: " + userId;
-        } else {
-            document.getElementById("output").innerText =
-                "Keine UserId in der URL gefunden.";
+            document.getElementById("userid-box").innerText =
+                "Logged in as UserId: " + userId;
         }
     </script>
 </body>
 </html>
-

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Roblox Login Callback</title>
+</head>
+<body>
+  <h2>Bitte warten… Roblox Login läuft</h2>
+
+<script>
+  async function run() {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (!code) {
+      document.body.innerHTML = "<h1>Fehler</h1><p>Kein Code erhalten!</p>";
+      return;
+    }
+
+    // an deinen Server senden (Vercel später)
+    const response = await fetch("https://DEINVERCELNAME.vercel.app/api/roblox-oauth?code=" + code);
+
+    const data = await response.json();
+
+    document.body.innerHTML = `
+      <h1>Login erfolgreich!</h1>
+      <p><strong>UserID:</strong> ${data.userId}</p>
+      <p><strong>Username:</strong> ${data.username}</p>
+    `;
+  }
+
+  run();
+</script>
+
+</body>
+</html>

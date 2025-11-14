@@ -1,50 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Roblox Login</title>
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            margin-top: 100px;
-        }
-        #userid-box {
-            margin-top: 20px;
-            font-size: 22px;
-            color: green;
-        }
-        a.login-button {
-            display: inline-block;
-            padding: 15px 25px;
-            background: #ff5555;
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 20px;
-        }
-    </style>
-</head>
-
 <body>
-    <h1>Roblox Login</h1>
 
-    <a class="login-button"
-       href="https://auth.roblox.com/?redirectTo=https://justreh.github.io/roblox-oauthRSS///justreh.github.io/roblox-oauthRSS/">
-       Login with Roblox
-    </a>
+<h1>Roblox Login</h1>
 
-    <div id="userid-box"></div>
+<a href="https://apis.roblox.com/oauth/v1/authorize?client_id=DEINE_CLIENT_ID&redirect_uri=https://justreh.github.io/roblox-oauthRSS/&response_type=code&scope=openid">
+    <button>Mit Roblox einloggen</button>
+</a>
 
-    <script>
-        // UserId aus der URL lesen
-        const params = new URLSearchParams(window.location.search);
-        const userId = params.get("userid");
-
-        if (userId) {
-            document.getElementById("userid-box").innerText =
-                "Logged in as UserId: " + userId;
-        }
-    </script>
 </body>
 </html>
+
